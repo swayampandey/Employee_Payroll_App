@@ -1,21 +1,13 @@
-const salary = document.querySelector('#salary');
-const salaryOutput = document.querySelector('.salary-output');
-salaryOutput.textContent = salary.value;
-salary.addEventListener('input', function () {
-    salaryOutput.textContent = salary.value;
-});
-
-
 class EmployeePayrollData {
 
     constructor(...params) {
-        this._name = params[0];
-        this._profileImage = params[1];
-        this._gender = params[2];
-        this._department = params[3];
-        this._salary = params[4];
-        this._startDate = params[5];
-        this._notes = params[6];
+        this.name = params[0];
+        this.profileImage = params[1];
+        this.gender = params[2];
+        this.department = params[3];
+        this.salary = params[4];
+        this.startDate = params[5];
+        this.notes = params[6];
     }
 
     get name() {
@@ -23,7 +15,6 @@ class EmployeePayrollData {
     }
     set name(name) {
         let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
-        console.log("Name : " + name);
         if (nameRegex.test(name)) {
             this._name = name;
         } else {
@@ -63,8 +54,17 @@ class EmployeePayrollData {
     get startDate() {
         return this._startDate;
     }
+
     set startDate(startDate) {
-        this._startDate = startDate;
+        const currentDate = new Date();
+        let timeDiff = currentDate.getTime() - startDate.getTime();
+        let daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
+        console.log("Days diff : " + daysDiff);
+        if (startDate <= currentDate && daysDiff <= 30) {
+            this._startDate = startDate;
+        } else {
+            throw "Start date is invalid";
+        }
     }
 
     get notes() {
@@ -111,7 +111,6 @@ function save() {
     try {
 
         let employeePayroll = new EmployeePayrollData(empName, empProfileImage, empGender, empDepartmentArr, empSalary, empStartDate, empNotes);
-
         console.log(employeePayroll.toString());
     } catch (e) {
         console.error(e);

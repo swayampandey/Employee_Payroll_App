@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Payroll System </title>
+    <title>Employee Payroll System UI</title>
 
     <link rel="stylesheet" href="/CSS/employee.css">
 
@@ -51,9 +51,9 @@
                         <img src="/assets/profile-images/Ellipse -3.png" class="profile" alt="">
                     </label>
                     <label>
-                        <input type="radio" name="profile" id="profile2" value="/assets/profile-images/Ellipse 1.png"
+                        <input type="radio" name="profile" id="profile2" value="/assets/profile-images/Ellipse -1.png"
                             required>
-                        <img src="/assets/profile-images/Ellipse 1.png" class="profile" alt="">
+                        <img src="/assets/profile-images/Ellipse -1.png" class="profile" alt="">
                     </label>
                     <label>
                         <input type="radio" name="profile" id="profile3" value="/assets/profile-images/Ellipse -8.png"
@@ -66,6 +66,38 @@
                         <img src="/assets/profile-images/Ellipse -7.png" class="profile" alt="">
                     </label>
                 </div>
+            </div>
+
+            <div class="row-content">
+                <label for="gender" class="label text">Gender</label>
+                <div>
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="male" class="text">Male</label>
+                    <input type="radio" name="gender" id="female" value="female">
+                    <label for="female" class="text">Female</label>
+                </div>
+            </div>
+
+            <div class="row-content">
+                <label for="department" class="label text">Department</label>
+                <div>
+                    <input type="checkbox" class="checkbox" name="hr" id="hr" value="HR">
+                    <label for="hr" class="text">HR</label>
+                    <input type="checkbox" class="checkbox" name="sales" id="sales" value="Sales">
+                    <label for="sales" class="text">Sales</label>
+                    <input type="checkbox" class="checkbox" name="finance" id="finance" value="Finance">
+                    <label for="finance" class="text">Finance</label>
+                    <input type="checkbox" class="checkbox" name="engineer" id="engineer" value="Engineer">
+                    <label for="engineer" class="text">Engineer</label>
+                    <input type="checkbox" class="checkbox" name="others" id="others" value="Others">
+                    <label for="others" class="text">Others</label>
+                </div>
+            </div>
+
+            <div class="row-content">
+                <label for="salary" class="label text">Choose your salary: </label>
+                <input type="range" name="salary" id="salary" class="input" min="300000" max="5000000" value="400000">
+                <output class="salary-output text" for="salary">400000</output>
             </div>
 
         </form>
